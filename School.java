@@ -5,16 +5,6 @@ public class School implements java.io.Serializable {
 	static ArrayList<Course> courses;
 	static ArrayList<Student> students = new ArrayList<Student>();
 	
-	
-	//public School() {
-	//}
-	
-//	public School(ArrayList<Student> stus, ArrayList<Course> cours) {
-//		cours = courses;
-//		stus = students;
-//	}
-	
-	
 	protected static ArrayList<Course> getCourses() {
 		return courses;
 	}
@@ -34,6 +24,4 @@ public class School implements java.io.Serializable {
 	protected School getSchool() {
 		return this;
 	}
-	
-	
 }
