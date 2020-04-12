@@ -46,10 +46,4 @@ public class Course implements Comparable<Course>, java.io.Serializable{
 	public void removeStudent(Student s) {
 		studentsInCourse.remove(s);
 	}
-
-	// a method is necessary for Course! To update the students arraylist. So that
-	// when a student adds a course, the students in course arraylist increases
-	// can do this directly from the Register in course method from User. and call
-	// itself. so that gets done automatically.
-
 }
