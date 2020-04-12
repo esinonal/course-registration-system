@@ -8,17 +8,11 @@ public class Student extends User implements StudentInt {
 
 	String idNumber;
 	ArrayList<Course> enrolledCourses = new ArrayList<Course>();
-	// Each student should also have an arraylist of courses
-	// But for each student it's different because each student's enrolled courses
-	// are different (not static)
 
 	Student() {
 	}
-	
 
-	
 	// Course management
-
 	public void viewAllCourses() {
 		System.out.println("These are the courses offered at the university: ");
 
@@ -54,7 +48,6 @@ public class Student extends User implements StudentInt {
 
 		int sectionNum = scan.nextInt(); // If the scanner is an int value we can directly take the value into the
 											// scanner and then move on.
-
 		int k = -1;
 		for (int i = 0; i < School.courses.size(); i++) {
 			if (School.courses.get(i).courseName.equals(course)) {
@@ -101,16 +94,13 @@ public class Student extends User implements StudentInt {
 		if (k == -1) {
 			System.out.println("Sorry, you are not enrolled in this course.");
 		} else {
-			// School.courses.get(k).studentsInCourse.remove(this); //Update school
-			// directory. In the school directory say, remove this student.
 			School.courses.get(k).removeStudent(this); // Inside Course, we have to declare to Course that this student
-														// is no longer inside the course
+										// is no longer inside the course
 			School.courses.get(k).currentNumStu--;
 			this.enrolledCourses.remove(School.courses.get(k));
 
 			System.out.println("Success. You have been removed from your course.");
 		}
-
 	}
 
 	public void viewCurrentCourses() {
@@ -118,12 +108,10 @@ public class Student extends User implements StudentInt {
 		if (num == 0) {
 			System.out.println("You are currently not enrolled in any courses.");
 		} else {
-			System.out.println("These are the courses you are currently registered in: "); /// (7) !!! Check that this
-																							/// part actually works. If
-																							/// they are enrolled
-			for (int i = 0; i < num; i++) { /// then this has to work
+			System.out.println("These are the courses you are currently registered in: "); 
+																																									/// they are enrolled
+			for (int i = 0; i < num; i++) { 
 				System.out.println(enrolledCourses.get(i).courseName);
-
 			}
 		}
 	}
@@ -139,8 +127,6 @@ public class Student extends User implements StudentInt {
 		}
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-
 		System.out.println("First you will create a username. Please enter a username: ");
 		String username = br.readLine();
 
@@ -194,11 +180,8 @@ public class Student extends User implements StudentInt {
 			School.students.get(k).password = password;
 
 			System.out.println("Success. Your username and password settings have been saved.");
-
 			}
 		}
-
-	
 
 	public void logIn(Student student, String username) throws IOException {
 		//Likewise, use argument student to get the index of the student object.
@@ -209,41 +192,8 @@ public class Student extends User implements StudentInt {
 			}
 		}//Now we know that the student's index is k.
 		
-		
 		//Username section:
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	
-
-		//boolean validUsername = true;
-		//int k = -1;
-		//for (int i = 0; i < School.students.size(); i++) {
-		//	if (School.students.get(i).username.equals(username)) {
-		//		validUsername = true;
-		//		k = i;
-		//	}
-		//}
-
-		//if (validUsername) { // such a username does exist, meaning such a student does indeed exist, (and we
-								// know that they are at the index k)
-
-		//} else {
-//
-//			while (!validUsername) {
-//				System.out.println("Invalid username. Please try again: ");
-//				username = br.readLine();
-//				for (int i = 0; i < School.students.size(); i++) {
-//					if (School.students.get(i).username.equals(username)) {
-//						validUsername = true;
-//						k = i;
-//					}
-//				}
-//			}
-			// Now that we have exited the loop, we have a valid username., user at index k.
-		//}
-
-		// Do nothing in the above if-else brackets, wait till we get here to proceed to
-		// password.
-
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
 		
 		//Password section:
 		System.out.println("Enter password:");
@@ -253,9 +203,6 @@ public class Student extends User implements StudentInt {
 			System.out.println("Incorrect password, try again: ");
 			password = br.readLine();
 		}
-
 		System.out.println("Correct password. Successful entry to system.");
-
 	}
-
 }
