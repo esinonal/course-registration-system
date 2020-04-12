@@ -11,13 +11,11 @@ import java.io.ObjectInputStream;
 public class CRS {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		
-
 		ArrayList<Course> list = new ArrayList<Course>(); // Must declare at top so is not local. This is used in reading courses from .ser file in try catch block.
                                                           // School also must be declare at top so not local. Used in try block as school.
 		ArrayList<Course> courses = new ArrayList<Course>();
 		ArrayList<Student> students = new ArrayList<Student>();
 
-		
 		// Part 1: Read from .ser file if exists
 		try{
 			  //FileInputSystem recieves bytes from a file
@@ -37,7 +35,6 @@ public class CRS {
 		      fis2.close();
 		      School.courses = courses;
 		      School.students = students;
-		      
 		}
 		catch(IOException ioe) { //If the .ser file does not exist, read from the CSV.
 		                         //ioe.printStackTrace();
@@ -56,34 +53,16 @@ public class CRS {
 				list.add(course);
 			}
 			//Now we have the list of courses that is available. (list)
-		    //return;
-			
 			// Open up and make available the Courses and Students Arraylists
 			//ArrayList<Course> courses = School.getCourses();
 			courses = list; // So now, we have that our Courses Arraylist is filled up with our courses (have not updated School class yet)
 			                // Whenever Courses or Students Arraylist is edited, we also have to Update our Arraylists so we are up to date.
 			School.setCourses(courses);
-			
 			//ArrayList<Student> students = new ArrayList<Student>(); // We also have our students, for the moment, empty. 
 			School.setStudents(students);
-
-		     
 		}
 		catch(ClassNotFoundException cnfe) {
-		       //cnfe.printStackTrace();
-		       //return;
 		}
-		 
-	
-	
-	
-	
-		
-		
-		
-		
-		
-		
 		
 		// Part 2: All menus - Have everything in a Do-While that allows the user to go through all menus and select functions
 		//
@@ -96,7 +75,6 @@ public class CRS {
 			int num = myScanner.nextInt();
 			
 			if (num == 1) { //  ~~~ ADMIN SECTION ~~~
-				
 
 				Admin admin = new Admin();                                                      // Admin's username and password section
 				System.out.println("Welcome admin. Input your username:");
@@ -113,8 +91,6 @@ public class CRS {
 					System.out.println("Please enter correct password.");
 					password = br.readLine();
 				}
-				
-				
 				// Have entered the main menu for the admin. Print Course management and Reports and allow user to choose.
 				
 				do { 
@@ -193,33 +169,16 @@ public class CRS {
 									System.out.println("Please enter a correct number.");
 								}
 							}
-							
-							
 						} while(num != 7);
-					
-						
 					}
-					
 					else {
 						if (num != 3) {
 							System.out.println("Please enter a correct number."); 
 						}
-						
 					}
-						
-					
-				
-					
 				} while (num != 3); // If num == 3, then log out happens to the "are you admin or student" main menu.
-				
-				
-				 
-				
-				
-				
 			}
 			else { //        ~~~ STUDENT SECTION ~~~
-				
 				
 				Student student = null;
 				System.out.println("Welcome student. Enter '1' to create a new username/password and '2' if you already have them.");
@@ -274,13 +233,9 @@ public class CRS {
 									System.out.println("Please enter a correct number.");
 								}
 							}
-							
-						} while(num!=6);
-					
-						
+						} while(num!=6);	
 					}
 				}
-				
 				else {
 					String username = null;
 					System.out.println("Please enter your username: ");
@@ -289,12 +244,8 @@ public class CRS {
 					if(student == null) {
 						System.out.println("Sorry, this username is not valid. Please contact your advisor. "); 
 					}
-					
-					
 					else {
 						student.logIn(student, username);  // The student logs in. 
-						
-						
 						do {
 							System.out.println("Course management: (Select 6 to log out of account)"); // And the do-while happens
 							System.out.println("1- View all courses");
@@ -326,25 +277,15 @@ public class CRS {
 									System.out.println("Please enter a correct number.");
 								}
 							}
-							
 						} while(num!=6);
 					}
 				}
-				
-				
-				
 			}
 			
 		runs = false; //at the end we want to exit the program.
 		System.out.println("Exiting Course registration system. Goodbye!");
 		} while (runs);
-		
-		
-		
-		
-		
-	
-		
+
 		// Part 4: Serialize the two arraylists
 		//School school = new School(students, courses);
 		ArrayList<Course> newCourseList = School.courses;
@@ -374,9 +315,7 @@ public class CRS {
 			ioe.printStackTrace();
 		}
 	}		
-		
 	
-
 	// ~~Some methods used in main are put at the end: ~~
 	public static Student getStudentByID(ArrayList<Student> students, String ID) {
 		for (int i=0; i<School.students.size();i++) {
@@ -395,14 +334,4 @@ public class CRS {
 		}
 		return null;
 	}
-
 }		
-			
-			
-				
-				
-			
-
-				
-				
-				
