@@ -1,10 +1,8 @@
 import java.io.IOException;
 
-
 public abstract interface StudentInt {
 	
 	// Course management
-	
 	public abstract void viewAllCourses();
 	
 	public abstract void viewCoursesNotFull();
@@ -14,8 +12,4 @@ public abstract interface StudentInt {
 	public abstract void withdrawFromCourse() throws IOException;
 	
 	public abstract void viewCurrentCourses();
-	
-
-	
-
 }
