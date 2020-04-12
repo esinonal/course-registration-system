@@ -5,15 +5,11 @@ import java.lang.Math;
 import java.util.*;
 
 public class Admin extends User implements AdminInt {
-	
-	
+
 	Admin() {
 	}
 	
-	
-	
 	// Part 1: Course management
-	
 	public void createNewCourse() throws IOException {
 		Scanner scan = new Scanner(System.in);
 		
@@ -49,8 +45,6 @@ public class Admin extends User implements AdminInt {
 		School.courses.add(newCourse);
 		
 		System.out.println("Your course has been added.");
-
-		
 	}  
 
 	public void deleteCourse() throws IOException { 
@@ -97,7 +91,6 @@ public class Admin extends User implements AdminInt {
 			else {
 				//Exit function.
 			}
-			
 		}
 		else if (k == 2) { // Here I am assuming the maximum number of exactly named classes will be 2.
 			int a = 0; //just initializing to 0 (but normally will contain index of course to delete)
@@ -143,16 +136,12 @@ public class Admin extends User implements AdminInt {
 			else {
 				//Exit function.
 			}
-			
 		}
 		else {
 			System.out.println("Cannot accomodate navigating deleting 3 or more exactly named classes");
 		}
-		
 	}
 
-	
-	
 	public void editCourse() throws IOException {
 		System.out.println("Enter name of course to edit:  ");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -165,13 +154,9 @@ public class Admin extends User implements AdminInt {
 			}
 		}
 		
-		
-		
 		if (k == 0) {  //If no course is found
 			System.out.println("Sorry, no such course was found.");
 		}
-		
-		
 		
 		else if (k == 1) { //if just one course is found
 			
@@ -216,15 +201,9 @@ public class Admin extends User implements AdminInt {
 			else {
 				//Exit function.
 			}
-			
 		}
-		
-		
-		
-		
 		else if (k == 2) { //if there are two courses with such a name.
-			
-			
+		
 			System.out.println("There were two such courses found: ");
 			
 			int a = 0; //just initializing to 0 (but normally will contain index of course to delete)
@@ -285,7 +264,6 @@ public class Admin extends User implements AdminInt {
 					System.out.println("Enter new instructor: ");
 					String instructor = br.readLine(); 
 					School.courses.get(b).instructor = instructor;
-					
 				}
 				else if (num == 2) {
 					System.out.println("Enter new course section: ");
@@ -308,9 +286,6 @@ public class Admin extends User implements AdminInt {
 		}
 	}
 
-	
-	
-	
 	public void displayInfo() throws IOException {
 		
 		System.out.println("Enter course ID:  ");
@@ -344,13 +319,10 @@ public class Admin extends User implements AdminInt {
 			System.out.println("Course section: "+ School.courses.get(a).sectionNumber);
 			System.out.println("Maximum number of students: "+ School.courses.get(a).maxNumStu);
 			System.out.println("Current number of students: "+ School.courses.get(a).currentNumStu);
-			
 		}
 		
 		
 		else if (k == 2) { //There are two such courses, so prompt which one they would like.
-			
-
 			System.out.println("There were two such courses found: ");
 			
 			int a = 0; //just initializing to 0 (but normally will contain index of course to delete)
@@ -393,12 +365,8 @@ public class Admin extends User implements AdminInt {
 				System.out.println("Course section: "+ School.courses.get(a).sectionNumber);
 				System.out.println("Maximum number of students: "+ School.courses.get(a).maxNumStu);
 				System.out.println("Current number of students: "+ School.courses.get(a).currentNumStu);
-				
-				
 			}
 			else if (num == 2) {
-				
-
 				System.out.println("Information for this course: ");
 				System.out.println("Course name: " + School.courses.get(b).courseName);
 				System.out.println("Course ID: "+ School.courses.get(b).courseID);
@@ -407,21 +375,15 @@ public class Admin extends User implements AdminInt {
 				System.out.println("Course section: "+ School.courses.get(b).sectionNumber);
 				System.out.println("Maximum number of students: "+ School.courses.get(b).maxNumStu);
 				System.out.println("Current number of students: "+ School.courses.get(b).currentNumStu);
-			
 			}
 			else { //exit
-				
 			}
-			
 		}
-		
 		else {
 			System.out.println("No functionality supported for 3 or more courses with same name.");
 		}
 	}
 	
-
-
 	public void registerStudent() throws IOException {
 		System.out.println("Enter first name of student:");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -458,23 +420,10 @@ public class Admin extends User implements AdminInt {
 		School.students.add(newStudent);
 		
 		System.out.println("Success. Student has been registered in system.");
-		
 	}
-
-
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	// Part 2: Reports 
-	
 	public void viewAllCourses() {
-		
 		System.out.println("View All Courses: ");
 		
 		//For all the courses that are in the School class, we will loop through and have a print statement for each.
@@ -539,15 +488,9 @@ public class Admin extends User implements AdminInt {
 		}
 	}
 
-	
-	
-	
-	
-	
 	public void writeToFileCoursesThatAreFull() throws IOException {    /// (6) !!!!!!    check that this works too.  !!! for the file part. when some courses are full
 		
 		int k = 0;
-		
 		for (int i=0; i<School.courses.size();i++) { //Just to get number of courses that are full (check how many courses are full)
 			if (School.courses.get(i).currentNumStu == School.courses.get(i).maxNumStu) {
 				k ++;
@@ -567,17 +510,9 @@ public class Admin extends User implements AdminInt {
 			}
 			writer.close();
 			System.out.println("Success. Saved to text file the list of courses that are currently full.");
-			
 		}
 	}
 
-	
-	
-	
-	
-	
-	
-	
 	public void viewStudentsInCourse() throws IOException {
 		
 		System.out.println("Enter course name:  ");
@@ -590,11 +525,9 @@ public class Admin extends User implements AdminInt {
 				k++; //Check if the course exists, if yes how many.
 			}
 		}
-		
 		if (k == 0) {  //If no course is found
 			System.out.println("Sorry, no such course was found.");
 		}
-		
 		else if (k == 1) { //There is only one such course.
 			int a = 0; //just initializing to 0 (but normally will contain index of the course)
 			//Find the index
@@ -612,8 +545,7 @@ public class Admin extends User implements AdminInt {
 				for (int i=0; i< School.courses.get(a).studentsInCourse.size(); i++) {
 					System.out.println(School.courses.get(a).studentsInCourse.get(i).firstName + " " + School.courses.get(a).studentsInCourse.get(i).lastName + "  (" + School.courses.get(a).studentsInCourse.get(i).username + ")");
 				}
-			}
-					
+			}		
 		}
 		else if (k == 2) {
 			System.out.println("There are two such courses. Did you mean to view the students in '1' or '2'? Print '1' or '2', or '3' to exit. ");
@@ -633,7 +565,6 @@ public class Admin extends User implements AdminInt {
 					b = i; //now we have index b. The very first value gets read over so it does not get saved.
 				}
 			}
-			
 			System.out.println("1:");
 			System.out.println(School.courses.get(a).courseName);
 			System.out.println(School.courses.get(a).courseID);
@@ -657,8 +588,6 @@ public class Admin extends User implements AdminInt {
 						System.out.println(School.courses.get(a).studentsInCourse.get(i).firstName + " " + School.courses.get(a).studentsInCourse.get(i).lastName + "  (" + School.courses.get(a).studentsInCourse.get(i).username + ")");
 					}
 				}
-				
-				
 			}
 			else if (num == 2) {
 				int stus = School.courses.get(b).studentsInCourse.size();
@@ -671,19 +600,15 @@ public class Admin extends User implements AdminInt {
 						System.out.println(School.courses.get(b).studentsInCourse.get(i).firstName + " " + School.courses.get(b).studentsInCourse.get(i).lastName + "  (" + School.courses.get(b).studentsInCourse.get(i).username + ")");
 					}
 				}
-	
 			}
 			else {
 				//Exit
 			}
-			
 		}
 		else {
 			System.out.println("Program does not support functionality for 3 or more exactly named courses.");
 		}
 	}
-
-	
 	
 	public void viewCoursesOfStudent() throws IOException {
 		System.out.println("Enter first name of student: ");
@@ -721,9 +646,6 @@ public class Admin extends User implements AdminInt {
 		}
 	}
 
-	
-	
-
 	public void sortCourses() { // (5) !!!! Test this one later too. Just to make sure that -1 and +1 are comparing in correct order.
 		Collections.sort(School.courses);
 		System.out.println("Success. Your courses have been sorted. (According to current number of students registered).");
@@ -732,21 +654,5 @@ public class Admin extends User implements AdminInt {
 			System.out.println("Course name: " + School.courses.get(i).courseName);
 			System.out.println("Current number of students: "+ School.courses.get(i).currentNumStu);
 		}
-		
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
