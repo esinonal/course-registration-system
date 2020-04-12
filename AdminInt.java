@@ -1,10 +1,7 @@
 import java.io.IOException;
 
-
 public abstract interface AdminInt {
-	
-	
-	
+
 	// Course management
 	public abstract void createNewCourse() throws IOException;
 	
@@ -15,10 +12,6 @@ public abstract interface AdminInt {
 	public abstract void displayInfo() throws IOException;
 	
 	public abstract void registerStudent() throws IOException;
-	
-	
-	
-	
 	
 	// Reports
 	public abstract void viewAllCourses();
@@ -32,6 +25,4 @@ public abstract interface AdminInt {
 	public abstract void viewCoursesOfStudent() throws IOException ;
 	
 	public abstract void sortCourses();
-	
-
 }
